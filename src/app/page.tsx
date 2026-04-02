@@ -59,10 +59,10 @@ export default async function Home() {
 
     if (error) {
       pollDatesError = error.message;
-    } else if (data) {
-      pollDates = data;
-    }
-
+  } else if (data) {
+    pollDates = data as any[];
+  }
+    
   const pollDateIds = pollDates.map((d) => d.id);
 
   const { data: votesData, error: votesError } = await supabase
